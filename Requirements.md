@@ -11,19 +11,19 @@
   - Raspberry Pi (for running Node-RED).
   - Power Supply (matching the solenoid valve voltage).
 
-2. Software
+# 2. Software
     Node-RED installed on Raspberry Pi.
     Additional Node-RED nodes for dashboard and GPIO control.
 
-3. Circuit Connection
+# 3. Circuit Connection
     1. Soil Moisture Sensor:
       Connect the sensor to the analog input of an ADC module (e.g., MCP3008) as Raspberry Pi does not have analog inputs.
       Power the sensor with 3.3V or 5V.
-4. Relay Module
+# 4. Relay Module
       Connect the relay module to the GPIO pins of the Raspberry Pi.
       Wire the solenoid valve to the relay module.
 
-5. Node-RED Flow
+# 5. Node-RED Flow
     Here’s the logic for the irrigation system:
     1. Monitor soil moisture levels.
     2. Compare moisture levels against a threshold (e.g., 30%).
@@ -33,7 +33,7 @@
       Status of the valve (ON/OFF).
       Manual override button.
       
-6. Recommended Solenoid Valve
+# 6. Recommended Solenoid Valve
     Rainbird 100-DVF: Durable and commonly used in irrigation.
     Hunter PGV: Efficient and reliable for small-scale smart farms.
     Amazon Basics Solenoid Valve: Budget-friendly options available online.
