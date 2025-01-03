@@ -1,0 +1,86 @@
+[
+    {
+        "id": "1",
+        "type": "tab",
+        "label": "Smart Farm",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "sensor-node",
+        "type": "rpi-gpio in",
+        "z": "1",
+        "name": "Soil Moisture Sensor",
+        "pin": "11",
+        "intype": "down",
+        "debounce": "25",
+        "read": true,
+        "x": 150,
+        "y": 100,
+        "wires": [["moisture-check"]]
+    },
+    {
+        "id": "moisture-check",
+        "type": "switch",
+        "z": "1",
+        "name": "Moisture Level",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "30",
+                "vt": "num"
+            },
+            {
+                "t": "gte",
+                "v": "30",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 350,
+        "y": 100,
+        "wires": [["valve-on"], ["valve-off"]]
+    },
+    {
+        "id": "valve-on",
+        "type": "rpi-gpio out",
+        "z": "1",
+        "name": "Turn ON Valve",
+        "pin": "13",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 550,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "valve-off",
+        "type": "rpi-gpio out",
+        "z": "1",
+        "name": "Turn OFF Valve",
+        "pin": "13",
+        "set": true,
+        "level": "1",
+        "freq": "",
+        "out": "out",
+        "x": 550,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "dashboard",
+        "type": "ui_group",
+        "z": "1",
+        "name": "Smart Farm",
+        "tab": "Home",
+        "order": 1,
+        "disp": true,
+        "width": "6"
+    }
+]
